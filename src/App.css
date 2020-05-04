@@ -1,38 +1,77 @@
-.App {
-  text-align: center;
+body {
+  box-sizing: border-box;
+  --padding-base: 25px;
+
+  height: 100vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#root {
+  display: grid;
+  place-items: center;
+  height: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#wrapper {
+  display: grid;
+  grid-auto-columns: minmax(20px, auto);
+
+  grid-template-areas:
+    "title title"
+    "break-label session-label"
+    "break-buttons session-buttons"
+    "session session"
+    "controls controls";
+
+  grid-gap: 7px;
+  padding: var(--padding-base);
+  width: 50vw;
+  margin: 0 auto;
+  justify-items: center;
+  top: 50%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+#title {
+  display: block;
+  grid-area: title;
 }
 
-.App-link {
-  color: #61dafb;
+#break-label {
+  display: inline-block;
+  grid-area: break-label;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#session-label {
+  display: inline-block;
+  grid-area: session-label;
+}
+
+#break-buttons {
+  display: block;
+  grid-area: break-buttons;
+}
+
+#session-buttons {
+  display: block;
+  grid-area: session-buttons;
+}
+
+#session {
+  display: block;
+  grid-area: session;
+}
+
+/* Cosmetics */
+
+h1 {
+  font-size: 3em;
+}
+
+.section-label {
+  font-size: 2em;
+}
+
+#session {
+  border: 5px solid #13353a;
+  border-radius: 20px;
+  padding: var(--padding-base);
 }
